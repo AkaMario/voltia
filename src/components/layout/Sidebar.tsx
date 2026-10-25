@@ -2,6 +2,7 @@ import { Icon } from "../ui/Icon";
 import { Brand } from "../ui/Brand";
 import { navigation } from "../../config/navigation";
 import { useDashboard } from "../../hooks/useDashboard";
+import { toBrowserPath } from "../../utils/routing";
 
 export function Sidebar() {
   const { user, path, mobile, activeAlerts, navigate, logout } = useDashboard();
@@ -24,7 +25,7 @@ export function Sidebar() {
         {navigation.slice(0, 8).map(([href, title, icon]) => (
           <a
             key={href}
-            href={href}
+            href={toBrowserPath(href)}
             className={`my-1 flex items-center gap-3 rounded-xl px-3 py-3 text-xs text-slate-500 transition-colors hover:bg-slate-50 hover:text-emerald-800 [&>svg]:size-[18px] [&>span]:flex-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-default disabled:opacity-45 motion-reduce:transition-none ${path === href ? "bg-emerald-50! text-emerald-800! font-semibold" : ""}`}
             aria-current={path === href ? "page" : undefined}
             onClick={(e) => {
@@ -51,7 +52,7 @@ export function Sidebar() {
           {navigation.slice(8).map(([href, title, icon]) => (
             <a
               key={href}
-              href={href}
+              href={toBrowserPath(href)}
               className={`my-1 flex items-center gap-3 rounded-xl px-3 py-3 text-xs text-slate-500 transition-colors hover:bg-slate-50 hover:text-emerald-800 [&>svg]:size-[18px] [&>span]:flex-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-default disabled:opacity-45 motion-reduce:transition-none ${path === href ? "bg-emerald-50! text-emerald-800! font-semibold" : ""}`}
               aria-current={path === href ? "page" : undefined}
               onClick={(e) => {

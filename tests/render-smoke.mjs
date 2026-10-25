@@ -43,7 +43,7 @@ try {
       globalThis.window.location.pathname = path;
       const html = renderToString(createElement(App));
       assert.ok(
-        html.includes("Datos simulados con fines académicos"),
+        html.includes("Mock académico · Sin conexión productiva"),
         `${userId} ${path}`,
       );
       assert.ok(html.includes("<main"), `${userId} ${path}`);

@@ -13,6 +13,8 @@ npm run dev
 
 Abrir la URL local que imprime Vite (habitualmente http://localhost:5173). Tras instalar dependencias, la demo local no necesita internet. La vista Power BI conectado sí requiere un informe publicado, configuración autorizada y conectividad.
 
+La versión publicada está disponible en <https://akamario.github.io/voltia/>. Los cambios enviados a `main` se validan, compilan y despliegan automáticamente con GitHub Actions.
+
 ```bash
 npm test                # Consistencia, conversiones, filtros y ámbito demo
 npm run test:render     # Renderizado React: login y 77 rutas/perfiles

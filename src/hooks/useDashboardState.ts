@@ -1,6 +1,7 @@
 import { navigation } from "../config/navigation";
 import { readAlertStates } from "../utils/storage";
 import { downloadEnergyCsv } from "../utils/exportCsv";
+import { toAppPath, toBrowserPath } from "../utils/routing";
 import {
   aggregate,
   alertsFor,
@@ -24,7 +25,7 @@ export function useDashboardState({
   onLogin,
   onLogout,
 }: DashboardSession) {
-  const [path, setPath] = useState(window.location.pathname),
+  const [path, setPath] = useState(toAppPath(window.location.pathname)),
     [filters, setFilters] = useState<Filters>({
       country: "all",
       period: "2026-09",
@@ -45,12 +46,12 @@ export function useDashboardState({
     [reloadTime, setReloadTime] = useState(""),
     [compare, setCompare] = useState<string[]>([]);
   useEffect(() => {
-    const handler = () => setPath(window.location.pathname);
+    const handler = () => setPath(toAppPath(window.location.pathname));
     window.addEventListener("popstate", handler);
     return () => window.removeEventListener("popstate", handler);
   }, []);
   function navigate(next: string) {
-    window.history.pushState({}, "", next);
+    window.history.pushState({}, "", toBrowserPath(next));
     setPath(next);
     setMobile(false);
     setSearch("");
