@@ -1,0 +1,7 @@
+{
+  "name": "VOLTIA EnergyView",
+  "dataColors": ["#147D60", "#B9D6B2", "#7198B0", "#D2BA79", "#A4B9AA", "#C5806E"],
+  "background": "#F5F7F6",
+  "foreground": "#243B32",
+  "tableAccent": "#147D60"
+}

@@ -1,0 +1,37 @@
+// Crear cada medida por separado en fact_energia. DAX con separador coma.
+Generación MWh = SUM(fact_energia[generacion_mwh])
+
+Meta MWh = SUM(fact_energia[esperada_mwh])
+
+Cumplimiento % = DIVIDE([Generación MWh], [Meta MWh])
+
+Desviación % = DIVIDE([Generación MWh] - [Meta MWh], [Meta MWh])
+
+Solar MWh = CALCULATE([Generación MWh], KEEPFILTERS(dim_activo[tecnologia] = "solar"))
+
+Eólica MWh = CALCULATE([Generación MWh], KEEPFILTERS(dim_activo[tecnologia] = "eolica"))
+
+Consumo MWh = SUM(fact_energia[consumo_mwh])
+
+Energía carga MWh = DIVIDE(SUM(fact_energia[energia_carga_kwh]), 1000)
+
+Sesiones carga = SUM(fact_energia[sesiones])
+
+Utilización % = DIVIDE(SUM(fact_energia[horas_ocupadas]), CALCULATE(SUM(fact_energia[horas_disponibles]), KEEPFILTERS(dim_activo[tecnologia] = "carga")))
+
+Disponibilidad % = DIVIDE(CALCULATE(SUM(fact_energia[horas_operativas]), KEEPFILTERS(dim_activo[tecnologia] <> "carga")), CALCULATE(SUM(fact_energia[horas_disponibles]), KEEPFILTERS(dim_activo[tecnologia] <> "carga")))
+
+Ingresos USD = SUM(fact_energia[ingresos_usd])
+
+// Calendario mensual: restar un mes a la única fecha de corte.
+Ingresos mes anterior USD = VAR Corte = SELECTEDVALUE(dim_fecha[fecha]) RETURN IF(NOT ISBLANK(Corte), CALCULATE([Ingresos USD], REMOVEFILTERS(dim_fecha), dim_fecha[fecha] = EDATE(Corte, -1)))
+
+Variación ingresos % = VAR Anterior = [Ingresos mes anterior USD] RETURN IF(NOT ISBLANK(Anterior), DIVIDE([Ingresos USD] - Anterior, Anterior))
+
+Emisiones estimadas tCO2e = SUM(fact_energia[emisiones_estimadas_tco2e])
+
+Capacidad MW = SUM(dim_activo[capacidad_mw])
+
+Calidad datos % = DIVIDE(SUM(fact_calidad[validos]), SUM(fact_calidad[evaluados]))
+
+Aviso académico = "Datos simulados con fines académicos"

@@ -1,0 +1,5 @@
+﻿"pais_id","nombre","moneda_local","factor_emision_hipotetico"
+"CO","Colombia","COP","0.15"
+"CL","Chile","CLP","0.23"
+"CR","Costa Rica","CRC","0.08"
+"UY","Uruguay","UYU","0.1"

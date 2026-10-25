@@ -1,0 +1,5 @@
+﻿"pais_id","fuente","evaluados","validos","rechazados","estado","ejecucion_utc"
+"CO","ERP-CO","1200","1188","12","Advertencia","2026-09-28T11:30:00Z"
+"CL","ERP-CL","1200","1200","0","Exitosa","2026-09-28T11:30:00Z"
+"CR","ERP-CR","1200","0","1200","Fallida","2026-09-28T11:30:00Z"
+"UY","ERP-UY","1200","1200","0","Exitosa","2026-09-28T11:30:00Z"
