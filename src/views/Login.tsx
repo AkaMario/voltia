@@ -153,14 +153,14 @@ export default function Login({ onLogin }: { onLogin: (user: User) => void }) {
               Completar contraseña demo
             </button>
           </details>
-          <p className="mt-6 text-[10px]! leading-5 text-slate-500">
+          {/* <p className="mt-6 text-[10px]! leading-5 text-slate-500">
             Datos simulados con fines académicos. Autenticación y permisos
             simulados en el navegador; no constituyen seguridad de producción.
-          </p>
+          </p> */}
         </div>
-        <small className="text-[11px]">
+        {/* <small className="text-[11px]">
           Arquitectura objetivo Azure + Power BI · Grupo 6
-        </small>
+        </small> */}
       </section>
     </div>
   );
