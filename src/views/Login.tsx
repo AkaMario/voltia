@@ -1,6 +1,6 @@
 import { Icon } from "../components/ui/Icon";
 import { Brand } from "../components/ui/Brand";
-import { Badge } from "../components/ui/Badge";
+// import { Badge } from "../components/ui/Badge";
 import { countries, DEMO_PASSWORD, users, type User } from "../domain/data";
 import { useState } from "react";
 
@@ -54,7 +54,7 @@ export default function Login({ onLogin }: { onLogin: (user: User) => void }) {
       </section>
       <section className="flex flex-col items-center justify-center gap-9 px-6 py-10 sm:px-12 lg:p-14 [&>div]:w-full [&>div]:max-w-96 [&_h2]:mt-7 [&_h2]:mb-3 [&_h2]:text-[26px] [&_h2]:font-semibold [&_h2]:tracking-tight [&>div>p]:text-xs [&_form]:my-8 [&_form]:flex [&_form]:flex-col [&_form]:gap-5 [&_input]:h-12 [&_input]:w-full [&>small]:text-[10px] [&>small]:text-slate-500 transition-[opacity,transform] duration-700 starting:translate-y-4 starting:opacity-0 motion-reduce:transition-none">
         <div>
-          <Badge>ENTORNO ACADÉMICO · MOCK</Badge>
+          {/* <Badge>ENTORNO ACADÉMICO · MOCK</Badge> */}
           <h2 className="text-base font-semibold tracking-tight text-slate-700">
             Bienvenido a EnergyView
           </h2>
